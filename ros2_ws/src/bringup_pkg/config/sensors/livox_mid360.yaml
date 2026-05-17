@@ -1,0 +1,9 @@
+lidar_cost_node:
+  ros__parameters:
+    lidar_input_topic: /livox/lidar
+    # Use the Madgwick-filtered IMU (raw /livox/imu has an empty orientation field).
+    imu_topic: /livox/imu_filtered
+    # Transform incoming cloud from livox_frame into base_link before processing.
+    # The static_transform_publisher tilt is applied here so slopes are computed
+    # in the gravity-aligned frame, not the raw tilted sensor frame.
+    lidar_tf_frame: livox_frame
